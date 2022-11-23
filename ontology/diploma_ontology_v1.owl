@@ -1,0 +1,284 @@
+@prefix : <http://www.w3id.org/cihd/dso/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.w3id.org/cihd/dso/> .
+
+<http://www.w3id.org/cihd/dso/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3id.org/humdisc/dso/#attest
+<http://www.w3id.org/cihd/dso/#attest> rdf:type owl:ObjectProperty ;
+                                          rdfs:domain <http://www.w3id.org/cihd/dso/#Document> ,
+                                                      <http://www.w3id.org/cihd/dso/#DocumentSection> ;
+                                          rdfs:range <http://www.w3id.org/cihd/dso/#HistoricalEvent> .
+
+
+###  http://www.w3id.org/humdisc/dso/#contains
+<http://www.w3id.org/cihd/dso/#contains> rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf owl:topObjectProperty ;
+                                            rdfs:domain <http://www.w3id.org/cihd/dso/#Document> ,
+                                                        <http://www.w3id.org/cihd/dso/#DocumentSection> ;
+                                            rdfs:range <http://www.w3id.org/cihd/dso/#DocumentSection> .
+
+
+###  http://www.w3id.org/humdisc/dso/#hasCopy
+<http://www.w3id.org/cihd/dso/#hasCopy> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://www.w3id.org/cihd/dso/#attest> .
+
+
+###  http://www.w3id.org/humdisc/dso/#hasTraditioType
+<http://www.w3id.org/cihd/dso/#hasTraditioType> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <http://www.w3id.org/cihd/dso/#hasType> ;
+                                                   rdfs:domain <http://www.w3id.org/cihd/dso/#Diploma> ;
+                                                   rdfs:range <http://www.w3id.org/cihd/dso/#TraditioType> .
+
+
+###  http://www.w3id.org/humdisc/dso/#hasType
+<http://www.w3id.org/cihd/dso/#hasType> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf owl:topObjectProperty ;
+                                           rdfs:domain <http://www.w3id.org/cihd/dso/#Document> ;
+                                           rdfs:range <http://www.w3id.org/cihd/dso/#Type> .
+
+
+###  http://www.w3id.org/humdisc/dso/#issuedAs
+<http://www.w3id.org/cihd/dso/#issuedAs> rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf <http://www.w3id.org/cihd/dso/#hasType> ;
+                                            rdfs:domain <http://www.w3id.org/cihd/dso/#Diploma> ;
+                                            rdfs:range <http://www.w3id.org/cihd/dso/#IssuedType> .
+
+
+###  http://www.w3id.org/humdisc/dso/#issuedBy
+<http://www.w3id.org/cihd/dso/#issuedBy> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <http://www.w3id.org/cihd/dso/#Document> ;
+                                            rdfs:range <http://www.w3id.org/cihd/dso/#Person> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3id.org/humdisc/dso/#AuthenticCopy
+<http://www.w3id.org/cihd/dso/#AuthenticCopy> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Copy> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Clausole
+<http://www.w3id.org/cihd/dso/#Clausole> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Tenor> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Copy
+<http://www.w3id.org/cihd/dso/#Copy> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://www.w3id.org/cihd/dso/#TraditioType> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Corroboratio
+<http://www.w3id.org/cihd/dso/#Corroboratio> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Tenor> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Cronic
+<http://www.w3id.org/cihd/dso/#Cronic> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Dating> .
+
+
+###  http://www.w3id.org/humdisc/dso/#CumDolo_ForgedDocument
+<http://www.w3id.org/cihd/dso/#CumDolo_ForgedDocument> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.w3id.org/cihd/dso/#IntegrallyForgedDocument> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Dating
+<http://www.w3id.org/cihd/dso/#Dating> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Excatocollo> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Decretum
+<http://www.w3id.org/cihd/dso/#Decretum> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Tenor> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Diploma
+<http://www.w3id.org/cihd/dso/#Diploma> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Document> .
+
+
+###  http://www.w3id.org/humdisc/dso/#DiplomaSection
+<http://www.w3id.org/cihd/dso/#DiplomaSection> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.w3id.org/cihd/dso/#DocumentSection> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Dispositio
+<http://www.w3id.org/cihd/dso/#Dispositio> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Tenor> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Document
+<http://www.w3id.org/cihd/dso/#Document> rdf:type owl:Class ;
+                                            owl:disjointWith <http://www.w3id.org/cihd/dso/#DocumentSection> .
+
+
+###  http://www.w3id.org/humdisc/dso/#DocumentSection
+<http://www.w3id.org/cihd/dso/#DocumentSection> rdf:type owl:Class .
+
+
+###  http://www.w3id.org/humdisc/dso/#Excatocollo
+<http://www.w3id.org/cihd/dso/#Excatocollo> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.w3id.org/cihd/dso/#DiplomaSection> ;
+                                               owl:disjointWith <http://www.w3id.org/cihd/dso/#Protocol> ,
+                                                                <http://www.w3id.org/cihd/dso/#Tenor> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Forgery
+<http://www.w3id.org/cihd/dso/#Forgery> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://www.w3id.org/cihd/dso/#TraditioType> .
+
+
+###  http://www.w3id.org/humdisc/dso/#HistoricalEvent
+<http://www.w3id.org/cihd/dso/#HistoricalEvent> rdf:type owl:Class .
+
+
+###  http://www.w3id.org/humdisc/dso/#ImitativeCopy
+<http://www.w3id.org/cihd/dso/#ImitativeCopy> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Copy> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Inscriptio
+<http://www.w3id.org/cihd/dso/#Inscriptio> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Protocol> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Inserts
+<http://www.w3id.org/cihd/dso/#Inserts> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Copy> .
+
+
+###  http://www.w3id.org/humdisc/dso/#IntegrallyForgedDocument
+<http://www.w3id.org/cihd/dso/#IntegrallyForgedDocument> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Forgery> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Intitulatio
+<http://www.w3id.org/cihd/dso/#Intitulatio> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Protocol> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Invocatio
+<http://www.w3id.org/cihd/dso/#Invocatio> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Protocol> .
+
+
+###  http://www.w3id.org/humdisc/dso/#IssuedType
+<http://www.w3id.org/cihd/dso/#IssuedType> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Type> ;
+                                              owl:disjointWith <http://www.w3id.org/cihd/dso/#TraditioType> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Narratio
+<http://www.w3id.org/cihd/dso/#Narratio> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Tenor> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Notificatio
+<http://www.w3id.org/cihd/dso/#Notificatio> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Tenor> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Original
+<http://www.w3id.org/cihd/dso/#Original> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3id.org/cihd/dso/#TraditioType> .
+
+
+###  http://www.w3id.org/humdisc/dso/#PartiallyForgedDocument
+<http://www.w3id.org/cihd/dso/#PartiallyForgedDocument> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Forgery> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Person
+<http://www.w3id.org/cihd/dso/#Person> rdf:type owl:Class .
+
+
+###  http://www.w3id.org/humdisc/dso/#Preamble
+<http://www.w3id.org/cihd/dso/#Preamble> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Tenor> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Protocol
+<http://www.w3id.org/cihd/dso/#Protocol> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3id.org/cihd/dso/#DiplomaSection> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Salutatio
+<http://www.w3id.org/cihd/dso/#Salutatio> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Protocol> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Sanctio
+<http://www.w3id.org/cihd/dso/#Sanctio> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Tenor> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Sigillum
+<http://www.w3id.org/cihd/dso/#Sigillum> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Excatocollo> .
+
+
+###  http://www.w3id.org/humdisc/dso/#SimpleCopy
+<http://www.w3id.org/cihd/dso/#SimpleCopy> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Copy> .
+
+
+###  http://www.w3id.org/humdisc/dso/#SineDolo_ForgedDocument
+<http://www.w3id.org/cihd/dso/#SineDolo_ForgedDocument> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <http://www.w3id.org/cihd/dso/#IntegrallyForgedDocument> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Subscription
+<http://www.w3id.org/cihd/dso/#Subscription> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Excatocollo> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Tenor
+<http://www.w3id.org/cihd/dso/#Tenor> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://www.w3id.org/cihd/dso/#DiplomaSection> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Topic
+<http://www.w3id.org/cihd/dso/#Topic> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Dating> .
+
+
+###  http://www.w3id.org/humdisc/dso/#TraditioType
+<http://www.w3id.org/cihd/dso/#TraditioType> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://www.w3id.org/cihd/dso/#Type> .
+
+
+###  http://www.w3id.org/humdisc/dso/#Type
+<http://www.w3id.org/cihd/dso/#Type> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.w3id.org/humdisc/dso/#ibridDocument
+<http://www.w3id.org/cihd/dso/#ibridDocument> rdf:type owl:NamedIndividual ,
+                                                          <http://www.w3id.org/cihd/dso/#IssuedType> .
+
+
+###  http://www.w3id.org/humdisc/dso/#privateDocument
+<http://www.w3id.org/cihd/dso/#privateDocument> rdf:type owl:NamedIndividual ,
+                                                            <http://www.w3id.org/cihd/dso/#IssuedType> .
+
+
+###  http://www.w3id.org/humdisc/dso/#publicDocument
+<http://www.w3id.org/cihd/dso/#publicDocument> rdf:type owl:NamedIndividual ,
+                                                           <http://www.w3id.org/cihd/dso/#IssuedType> .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
